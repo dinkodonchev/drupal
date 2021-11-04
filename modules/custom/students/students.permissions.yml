@@ -1,0 +1,9 @@
+access students content:
+  title: 'Access Students Content'
+  description: 'Access Students List Page'
+edit students content:
+  title: 'Edit Students Content'
+  description: 'Enable editing of particular student'
+delete students content:
+  title: 'Delete Students Content'
+  description: 'Enable deletion of particular student'

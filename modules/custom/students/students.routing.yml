@@ -1,0 +1,7 @@
+students.content:
+  path: '/add_students'
+  defaults:
+    _controller: 'Drupal\students\Controller\StudentsController::addStudents'
+    _title: 'Test Add Students Page'
+  requirements:
+    _permission: 'edit students content'
