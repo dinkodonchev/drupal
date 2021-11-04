@@ -1,9 +1,10 @@
 <?php
 
-namespace  \Drupal\students\Form;
+namespace Drupal\students\Form;
 
 use \Drupal\Core\Form\FormBase;
 use \Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Database\Database;
 
 class AddStudentsForm extends FormBase
 {
@@ -55,5 +56,12 @@ class AddStudentsForm extends FormBase
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
     \Drupal::messenger()->addMessage($form_state->getValue('name'));
+
+    $name = $form_state->getValue('name');
+    $gender = $form_state->getValue('gender');
+    $faculty_number = $form_state->getValue('faculty_number');
+
+    $connection = Database::getConnection();
+    $connection->insert('students',['name' => $name,'gender' => $gender, 'faculty_number' => $faculty_number]);
   }
 }
