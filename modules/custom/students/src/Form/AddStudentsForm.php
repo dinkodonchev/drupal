@@ -31,10 +31,10 @@ class AddStudentsForm extends FormBase
       '#type' => 'radios',
       '#title' => $this->t('Gender'),
       '#options'  => array(
-        0 => $this
-          ->t('m'),
-        1 => $this
-          ->t('f'),
+        'm' => $this
+          ->t('Male'),
+        'f' => $this
+          ->t('Female'),
       ),
     ];
 
