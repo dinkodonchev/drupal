@@ -1,4 +1,5 @@
 <?php
+/** @var \Drupal\Core\Database\Connection $connection */
 
 namespace Drupal\students\Form;
 
@@ -61,7 +62,19 @@ class AddStudentsForm extends FormBase
     $gender = $form_state->getValue('gender');
     $faculty_number = $form_state->getValue('faculty_number');
 
-    $connection = Database::getConnection();
-    $connection->insert('students',['name' => $name,'gender' => $gender, 'faculty_number' => $faculty_number]);
+    $connection = \Drupal::service('database');
+
+    // The assignment to a variable is as far as I understood some kind of
+    // precaution ---> Quote: "If there is no auto-increment field,
+    // the return value from execute() is undefined and should not be trusted." ---> Source
+    // --> https://www.drupal.org/docs/drupal-apis/database-api/insert-queries
+    $result = $connection->insert('students')
+      ->fields([
+        'name' => $name,
+        'gender' => $gender,
+        'faculty_number' => $faculty_number,
+      ])
+      ->execute();
+
   }
 }
