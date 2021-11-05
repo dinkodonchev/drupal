@@ -30,9 +30,20 @@ class StudentsController extends ControllerBase
     );
   }
 
-  private function fetchAllStudents() {
+  private function fetchAllStudents()
+  {
     $query = \Drupal::database()->query( "SELECT * FROM students" );
     $results = $query->fetchAll();
     return $results;
+  }
+
+  private function deleteStudent($studentId)
+  {
+    // ToDo
+  }
+
+  private function updateStudent($studentId)
+  {
+    // ToDo
   }
 }

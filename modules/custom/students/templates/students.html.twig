@@ -1,6 +1,8 @@
 <h1>{{ items.title }}</h1>
+{% if items.data is empty %}
+  <div>No student data are added yet</div>
+{% else %}
 
-<tr>
   <table>
     <tr>
       <th>Student name</th>
@@ -15,4 +17,5 @@
     </tr>
   {% endfor %}
   </table>
+{% endif %}
 </div>
