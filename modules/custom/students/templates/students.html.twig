@@ -1,11 +1,18 @@
 <h1>{{ items.title }}</h1>
 
-<div>
+<tr>
+  <table>
+    <tr>
+      <th>Student name</th>
+      <th>Student gender</th>
+      <th>Student faculty number</th>
+    </tr>
   {% for student in items.data %}
-    <div>
-      <div>{{ student.name }}</div>
-      <div>{{ student.gender }}</div>
-      <div>{{ student.faculty_number }}</div>
-    </div>
+    <tr>
+      <td>{{ student.name }}</td>
+      <td>{{ student.gender }}</td>
+      <td>{{ student.faculty_number }}</td>
+    </tr>
   {% endfor %}
+  </table>
 </div>
