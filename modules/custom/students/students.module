@@ -1,0 +1,46 @@
+<?php
+
+// use \Drupal\Core\Url;
+
+function students_theme($existing, $theme, $type, $path)
+{
+  return array(
+    'students' => array(
+      'variables' => array(
+        'items' => [],
+        'title' => '',
+      )
+    )
+  );
+}
+
+/*
+ * Implementation of hook_form_alter
+ */
+function students_form_alter(&$form, &$form_state, $form_id)
+{
+  if($form_id=='add_students_form') {
+     $form['#validate'][]='add_students_form_validate';
+//    $form['faculty_number'] = [
+//      '#type' => 'textfield',
+//      '#title' => t('Faculty number'),
+//      '#maxlength' => 8,
+//      '#minlength' => 8,
+//    ];
+    return $form;
+  }
+}
+
+function add_students_form_validate($form,&$form_state)
+{
+  $faculty_number = $form_state->getValue('faculty_number');
+
+  if ( !is_numeric($faculty_number) || strlen($faculty_number) != 8 ) {
+
+    // $form_state->setRedirect('<front>');
+
+    // form_set_error('faculty_number','Faculty number field should accept 8 digits only!');
+    // \Drupal::messenger()->addMessage('Faculty number field should accept 8 digits only!', 'error');
+    \Drupal::messenger()->addWarning(t('Faculty number field should accept 8 digits only!'));
+  }
+}

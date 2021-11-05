@@ -1,0 +1,5 @@
+services:
+  http_middleware.students_redirect:
+    class: Drupal\students\Middleware\Redirect
+    tags:
+      - { name: http_middleware }

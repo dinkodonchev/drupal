@@ -56,25 +56,26 @@ class AddStudentsForm extends FormBase
    */
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
-    \Drupal::messenger()->addMessage($form_state->getValue('name'));
+    // \Drupal::messenger()->addMessage($form_state->getValue('name'));
 
     $name = $form_state->getValue('name');
     $gender = $form_state->getValue('gender');
     $faculty_number = $form_state->getValue('faculty_number');
 
-    $connection = \Drupal::service('database');
+    if (is_numeric($faculty_number) && strlen($faculty_number) == 8) {
+      $connection = \Drupal::service('database');
 
-    // The assignment to a variable is as far as I understood some kind of
-    // precaution ---> Quote: "If there is no auto-increment field,
-    // the return value from execute() is undefined and should not be trusted." ---> Source
-    // --> https://www.drupal.org/docs/drupal-apis/database-api/insert-queries
-    $result = $connection->insert('students')
-      ->fields([
-        'name' => $name,
-        'gender' => $gender,
-        'faculty_number' => $faculty_number,
-      ])
-      ->execute();
-
+      // The assignment to a variable is as far as I understood some kind of
+      // precaution ---> Quote: "If there is no auto-increment field,
+      // the return value from execute() is undefined and should not be trusted." ---> Source
+      // --> https://www.drupal.org/docs/drupal-apis/database-api/insert-queries
+      $result = $connection->insert('students')
+        ->fields([
+          'name' => $name,
+          'gender' => $gender,
+          'faculty_number' => $faculty_number,
+        ])
+        ->execute();
+    }
   }
 }

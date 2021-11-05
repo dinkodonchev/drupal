@@ -13,3 +13,11 @@ students.add_students_form:
     _title: 'Test Add Students Form'
   requirements:
     _permission: 'edit students content'
+
+students.list_students:
+  path: '/students'
+  defaults:
+    _controller: 'Drupal\students\Controller\StudentsController::listStudents'
+    _title: 'List All Students'
+  requirements:
+    _permission: 'access students content'
