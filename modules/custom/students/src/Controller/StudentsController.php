@@ -32,19 +32,23 @@ class StudentsController extends ControllerBase
 
   private function fetchAllStudents()
   {
-    $query = \Drupal::database()->select( 'students', 's' )->fields('s', array('name', 'gender', 'faculty_number'))->execute();;
+    $query = \Drupal::database()->select( 'students', 's' )->fields('s', array('id', 'name', 'gender', 'faculty_number'))->execute();;
     $results = $query->fetchAll();
 
     return $results;
   }
 
-  private function deleteStudent($studentId)
+  public function deleteStudent($id)
   {
-    // ToDo
+     $delete_query = \Drupal::database()->delete('students')
+      ->condition('id', $id)
+      ->execute();
+
+     return $this->redirect('students.list_students');
   }
 
-  private function updateStudent($studentId)
-  {
-    // ToDo
-  }
+//  public function updateStudent($studentId)
+//  {
+//    // ToDo
+//  }
 }

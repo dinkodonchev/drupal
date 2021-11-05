@@ -21,3 +21,15 @@ students.list_students:
     _title: 'List All Students'
   requirements:
     _permission: 'access students content'
+
+students.delete_student:
+  path: '/delete_student/{id}'
+  defaults:
+    _controller: 'Drupal\students\Controller\StudentsController::deleteStudent'
+    _title: 'Delete Student'
+  requirements:
+    _permission: 'delete student content'
+#  options:
+#    parameters:
+#      id:
+#        type: id
