@@ -32,8 +32,9 @@ class StudentsController extends ControllerBase
 
   private function fetchAllStudents()
   {
-    $query = \Drupal::database()->query( "SELECT * FROM students" );
+    $query = \Drupal::database()->select( 'students', 's' )->fields('s', array('name', 'gender', 'faculty_number'))->execute();;
     $results = $query->fetchAll();
+
     return $results;
   }
 

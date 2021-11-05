@@ -8,12 +8,18 @@
       <th>Student name</th>
       <th>Student gender</th>
       <th>Student faculty number</th>
+      <th>Edit student</th>
+      <th>Delete student</th>
     </tr>
   {% for student in items.data %}
     <tr>
       <td>{{ student.name }}</td>
       <td>{{ student.gender }}</td>
       <td>{{ student.faculty_number }}</td>
+      <td><a href="">Edit</a></td>
+      <td><a href="">Delete</a></td>
+{#      <td>{{ link() }}</td>#}
+{#      <td>{{ link() }}</td>#}
     </tr>
   {% endfor %}
   </table>
