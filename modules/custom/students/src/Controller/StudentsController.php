@@ -6,6 +6,11 @@
 
 namespace Drupal\students\Controller;
 use Drupal\Core\Controller\ControllerBase;
+// use Drupal\Core\Ajax\RedirectCommand;
+// use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\Ajax\RemoveCommand;
+use Drupal\Core\Ajax\AjaxResponse;
+// use \Drupal\Core\Url;
 
 class StudentsController extends ControllerBase
 {
@@ -44,11 +49,9 @@ class StudentsController extends ControllerBase
       ->condition('id', $id)
       ->execute();
 
-     return $this->redirect('students.list_students');
-  }
+    $response = new AjaxResponse();
+    $response->addCommand(new RemoveCommand('#student-row-' . $id, 'remove'));
 
-//  public function updateStudent($studentId)
-//  {
-//    // ToDo
-//  }
+    return $response;
+  }
 }
