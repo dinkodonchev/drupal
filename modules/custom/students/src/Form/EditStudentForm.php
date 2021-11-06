@@ -23,10 +23,6 @@ class EditStudentForm extends FormBase
    */
   public function buildForm(array $form, FormStateInterface $form_state, $id = NULL)
   {
-//    var_dump($id);
-//    die();
-    // ToDo
-
     $form['id'] = [
       '#type' => 'textfield',
       '#attributes' => array('readonly' => 'readonly'),
@@ -37,7 +33,10 @@ class EditStudentForm extends FormBase
     $form['name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Name'),
+      '#value' => \Drupal::database()->query("SELECT name from students WHERE id = :id", array(":id" => $id))->fetchField(),
     ];
+
+    // for db values of one row - fetchField or entityQuery?
 
     $form['gender'] = [
       '#type' => 'radios',
@@ -48,11 +47,13 @@ class EditStudentForm extends FormBase
         'f' => $this
           ->t('Female'),
       ),
+     // '#value' => ,
     ];
 
     $form['faculty_number'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Faculty number'),
+      //'#value' => ,
     ];
 
     $form['submit'] = [
@@ -69,5 +70,16 @@ class EditStudentForm extends FormBase
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
     // ToDO
+    $id = $form_state->getValue('id');
+    $name = $form_state->getValue('name');
+    $gender = $form_state->getValue('gender');
+    $faculty_number = $form_state->getValue('faculty_number');
+
+    //
+    //    db_update('sessions')
+    //      ->fields(['sid' => session_id()])
+    //      ->condition('sid', $old_session_id)
+    //      ->execute();
+    // UPDATE {sessions} SET sid = 'abcde' WHERE (sid = 'fghij');
   }
 }
