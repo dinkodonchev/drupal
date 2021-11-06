@@ -33,3 +33,12 @@ students.delete_student:
 #    parameters:
 #      id:
 #        type: id
+
+students.edit_student:
+  path: '/edit_student/{id}'
+  defaults:
+    _form: 'Drupal\students\Form\EditStudentForm'
+    _title: 'Edit particlular student contents'
+    id: 0
+  requirements:
+    _permission: 'edit students content'

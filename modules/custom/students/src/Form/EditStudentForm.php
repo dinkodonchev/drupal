@@ -15,15 +15,52 @@ class EditStudentForm extends FormBase
    */
   public function getFormId()
   {
-    return 'edit_students_form';
+    return 'edit_student_form';
   }
 
   /*
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state)
+  public function buildForm(array $form, FormStateInterface $form_state, $id = NULL)
   {
+//    var_dump($id);
+//    die();
     // ToDo
+
+    $form['id'] = [
+      '#type' => 'textfield',
+      '#attributes' => array('readonly' => 'readonly'),
+      '#title' => $this->t('ID - read only'),
+      '#value' => $id,
+    ];
+
+    $form['name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Name'),
+    ];
+
+    $form['gender'] = [
+      '#type' => 'radios',
+      '#title' => $this->t('Gender'),
+      '#options'  => array(
+        'm' => $this
+          ->t('Male'),
+        'f' => $this
+          ->t('Female'),
+      ),
+    ];
+
+    $form['faculty_number'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Faculty number'),
+    ];
+
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Save'),
+    ];
+
+    return $form;
   }
 
   /*
