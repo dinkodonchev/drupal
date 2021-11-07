@@ -1,7 +1,73 @@
-/*table tr th.custom {*/
-/*  background: blue;*/
-/*}*/
+table tr th.custom {
+  color: #637485;
+  font-size: 0.9em;
+  font-weight: 700;
+  padding: 0 0.75em 0.75em 0.75em;
+  text-align: left;
+  background: none;
+}
+
+#students-thead {
+  border-bottom-color: rgba(99, 116, 133, 0.25);
+  border-bottom: solid 2px;
+}
+
+#sortablelist {
+
+}
 
 /*#students-list-title {*/
 /*  color: red !important;*/
 /*}*/
+
+#students-table {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+table tbody .thead-students-tr {
+  border-color: rgba(99, 116, 133, 0.25);
+}
+
+table tbody .tbody-students-tr {
+  border-color: rgba(99, 116, 133, 0.25);
+}
+
+table tbody .tbody-students-tr .students-td {
+  padding: 0.75em 0.75em;
+  margin: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+table tbody .tbody-students-tr:nth-child(2n + 1) {
+  background-color: rgba(99, 116, 133, 0.075);
+}
+
+.students-a-btn {
+  box-shadow: none;
+  background-color: #00a6d9;
+  color: #ffffff !important;
+  font-size: 0.6em;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  height: 3.5em;
+  line-height: 3.5em;
+  padding: 0 2.25em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+
+

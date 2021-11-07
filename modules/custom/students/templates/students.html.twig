@@ -9,22 +9,24 @@
   <div>No student data are added yet</div>
 {% else %}
 
-  <table>
-    <tbody id="sortablelist">
-      <tr>
-        <th class="custom">Student name</th>
-        <th class="custom">Student gender</th>
-        <th class="custom">Student faculty number</th>
-        <th class="custom">Edit student</th>
-        <th class="custom">Delete student</th>
+  <table id="students-table">
+   <thead id="students-thead">
+      <tr class="thead-students-tr">
+        <th class="custom students-th">Student name</th>
+        <th class="custom students-th">Student gender</th>
+        <th class="custom students-th">Student faculty number</th>
+        <th class="custom students-th">Edit student</th>
+        <th class="custom students-th">Delete student</th>
       </tr>
+   </thead>
+    <tbody class="students-table-body" id="sortablelist">
     {% for student in items.data %}
-      <tr id="student-row-{{ student.id }}" data-sort-order="{{ student.sort_order }}" data-id="{{ student.id }}">
-        <td>{{ student.name }}</td>
-        <td>{{ student.gender }}</td>
-        <td>{{ student.faculty_number }}</td>
-        <td><a href="/drupal/edit_student/{{ student.id }}">Edit</a></td>
-        <td><a class="use-ajax" href="/drupal/delete_student/{{ student.id }}">Delete</a></td>
+      <tr class="tbody-students-tr" id="student-row-{{ student.id }}" data-sort-order="{{ student.sort_order }}" data-id="{{ student.id }}">
+        <td class="students-td">{{ student.name }}</td>
+        <td class="students-td">{{ student.gender }}</td>
+        <td class="students-td">{{ student.faculty_number }}</td>
+        <td class="students-td"><a class="students-a-btn" href="/drupal/edit_student/{{ student.id }}">Edit</a></td>
+        <td class="students-td"><a class="use-ajax students-a-btn" href="/drupal/delete_student/{{ student.id }}">Delete</a></td>
   {#      <td>{{ link() }}</td>#}
   {#      <td>{{ link() }}</td>#}
       </tr>
