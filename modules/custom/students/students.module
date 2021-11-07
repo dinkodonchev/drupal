@@ -9,7 +9,11 @@ function students_theme($existing, $theme, $type, $path)
       'variables' => array(
         'items' => [],
         'title' => '',
-      )
+        'content' => NULL,
+      ),
+      'template' => 'students',
+//      'theme' => $theme,
+//      'type' => 'theme',
     )
   );
 }

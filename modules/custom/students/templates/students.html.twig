@@ -1,4 +1,5 @@
 <!-- SortableJS CDN -->
+{{ attach_library('students/students.css') }}
 <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
 
 <h1>{{ items.title }}</h1>
@@ -9,11 +10,11 @@
   <table>
     <tbody id="sortablelist">
       <tr>
-        <th>Student name</th>
-        <th>Student gender</th>
-        <th>Student faculty number</th>
-        <th>Edit student</th>
-        <th>Delete student</th>
+        <th class="custom">Student name</th>
+        <th class="custom">Student gender</th>
+        <th class="custom">Student faculty number</th>
+        <th class="custom">Edit student</th>
+        <th class="custom">Delete student</th>
       </tr>
     {% for student in items.data %}
       <tr id="student-row-{{ student.id }}" data-id="{{ student.id }}">

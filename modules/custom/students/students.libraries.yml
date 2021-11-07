@@ -1,0 +1,8 @@
+students:
+  version: 1.x
+  css:
+    themes:
+      css/students.css: {}
+react-students:
+  js:
+    js/src/students.js: { preprocess: false }
