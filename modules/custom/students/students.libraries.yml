@@ -1,7 +1,7 @@
 students:
   version: 1.x
   css:
-    themes:
+    theme:
       css/students.css: {}
 react-students:
   js:
