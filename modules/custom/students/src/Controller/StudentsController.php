@@ -55,7 +55,7 @@ class StudentsController extends ControllerBase
     return $response;
   }
 
-  public function updateSortOrder($order)
+  public function updateSortOrder()
   {
     // toDo
     var_dump("test update sort order");

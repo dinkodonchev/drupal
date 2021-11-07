@@ -1,6 +1,7 @@
 <!-- SortableJS CDN -->
 {{ attach_library('students/students.css') }}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
 
 <h1>{{ items.title }}</h1>
@@ -32,13 +33,28 @@
   </table>
 {% endif %}
 
+<form action="{{url('students.update_sort_order')}}">
 
 <script>
-  console.log(sortablelist)
-  new Sortable(sortablelist, {
-    animation: 150,
+  // console.log(sortablelist)
+  // new Sortable(sortablelist, {
+  //   animation: 150,
+  // });
+  // console.log(sortablelist)
+  $('#sortablelist').sortable({
+    axis: 'y',
+    update: function (event, ui) {
+      var data = $(this).sortable('serialize');
+      var Url = $(this).parents('form').attr('action');
+
+      // POST to server using $.post or $.ajax
+      $.ajax({
+        data: data,
+        type: 'POST',
+        url: Url
+      });
+    }
   });
-  console.log(sortablelist)
 </script>
 
 
