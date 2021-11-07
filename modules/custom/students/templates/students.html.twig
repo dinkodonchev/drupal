@@ -1,5 +1,6 @@
 <!-- SortableJS CDN -->
 {{ attach_library('students/students.css') }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
 
 <h1>{{ items.title }}</h1>
@@ -17,7 +18,7 @@
         <th class="custom">Delete student</th>
       </tr>
     {% for student in items.data %}
-      <tr id="student-row-{{ student.id }}" data-id="{{ student.id }}">
+      <tr id="student-row-{{ student.id }}" data-sort-order="{{ student.sort_order }}" data-id="{{ student.id }}">
         <td>{{ student.name }}</td>
         <td>{{ student.gender }}</td>
         <td>{{ student.faculty_number }}</td>
@@ -33,10 +34,11 @@
 
 
 <script>
+  console.log(sortablelist)
   new Sortable(sortablelist, {
     animation: 150,
-    ghostClass: 'sortable-ghost'
   });
+  console.log(sortablelist)
 </script>
 
 
