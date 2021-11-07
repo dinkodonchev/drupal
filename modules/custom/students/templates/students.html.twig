@@ -1,27 +1,41 @@
+<!-- SortableJS CDN -->
+<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+
 <h1>{{ items.title }}</h1>
 {% if items.data is empty %}
   <div>No student data are added yet</div>
 {% else %}
 
   <table>
-    <tr>
-      <th>Student name</th>
-      <th>Student gender</th>
-      <th>Student faculty number</th>
-      <th>Edit student</th>
-      <th>Delete student</th>
-    </tr>
-  {% for student in items.data %}
-    <tr id="student-row-{{ student.id }}">
-      <td>{{ student.name }}</td>
-      <td>{{ student.gender }}</td>
-      <td>{{ student.faculty_number }}</td>
-      <td><a href="/drupal/edit_student/{{ student.id }}">Edit</a></td>
-      <td><a class="use-ajax" href="/drupal/delete_student/{{ student.id }}">Delete</a></td>
-{#      <td>{{ link() }}</td>#}
-{#      <td>{{ link() }}</td>#}
-    </tr>
+    <tbody id="sortablelist">
+      <tr>
+        <th>Student name</th>
+        <th>Student gender</th>
+        <th>Student faculty number</th>
+        <th>Edit student</th>
+        <th>Delete student</th>
+      </tr>
+    {% for student in items.data %}
+      <tr id="student-row-{{ student.id }}" data-id="{{ student.id }}">
+        <td>{{ student.name }}</td>
+        <td>{{ student.gender }}</td>
+        <td>{{ student.faculty_number }}</td>
+        <td><a href="/drupal/edit_student/{{ student.id }}">Edit</a></td>
+        <td><a class="use-ajax" href="/drupal/delete_student/{{ student.id }}">Delete</a></td>
+  {#      <td>{{ link() }}</td>#}
+  {#      <td>{{ link() }}</td>#}
+      </tr>
   {% endfor %}
+    </tbody>
   </table>
 {% endif %}
-</div>
+
+
+<script>
+  new Sortable(sortablelist, {
+    animation: 150,
+    ghostClass: 'sortable-ghost'
+  });
+</script>
+
+
