@@ -69,5 +69,57 @@ table tbody .tbody-students-tr:nth-child(2n + 1) {
   white-space: nowrap;
 }
 
+.add-students-form .button {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px rgb(99 116 133 / 25%);
+  color: #637485 !important;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: 700;
+  height: 3.5em;
+  line-height: 3.5em;
+  padding: 0 2.25em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.add-students-form input[type="text"] {
+  background-color: rgba(99, 116, 133, 0.075);
+  border-color: transparent;
+  height: 3em;
+  appearance: none;
+  border: none;
+  border: solid 1px
+  color: inherit;
+  display: block;
+  outline: 0;
+  padding: 01em;
+  text-decoration: none;
+  width: 100%;
+}
+
+.add-students-form input[type="radio"] {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 400;
+  padding-left: 2.55em;
+  padding-right: 0.75em;
+  position: relative;
+}
+
+.add-students-form input[type="radio"]:checked + label:before {
+  background-color: #00a6d9;
+  border-color: #00a6d9;
+  color: #ffffff;
+}
+
 
 

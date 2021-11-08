@@ -24,6 +24,8 @@ function students_theme($existing, $theme, $type, $path)
 function students_form_alter(&$form, &$form_state, $form_id)
 {
   if($form_id=='add_students_form') {
+    $form['#attached']['library'][] = 'students/students';
+
      $form['#validate'][]='add_students_form_validate';
 //    $form['faculty_number'] = [
 //      '#type' => 'textfield',

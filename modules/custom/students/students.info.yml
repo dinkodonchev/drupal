@@ -5,3 +5,6 @@ description: 'Students List'
 libraries:
   - 'students/students'
 
+styleswitcher[css][Alternate]: css/students.css
+styleswitcher[default]: css/default.css
+
